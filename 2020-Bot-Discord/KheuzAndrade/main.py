@@ -93,4 +93,4 @@ class MyClient(discord.Client):
                 await message.channel.send("`Error: Comando desconhecido.`")
 
 client = MyClient()
-client.run('NzIzNDk2ODM1OTk3NjMwNDc1.Xuyfkg.yJN5Q1g6imoKSomFuiPEanqDR94')
+client.run('TOKEN')
