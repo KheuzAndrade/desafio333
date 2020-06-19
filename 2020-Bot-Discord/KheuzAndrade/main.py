@@ -1,3 +1,4 @@
+#discordapp.com/oauth2/authorize?client_id=723496835997630475&scope=bot&permissions=8
 import discord
 import pandas
 from urllib.request import urlretrieve
@@ -28,9 +29,8 @@ class MyClient(discord.Client):
                 num = str(randint(1,6))
                 await message.channel.send("`Número Sorteado: "+num+"`")
 
-            # COVID-19
-            
-            if command[0] == "!casos confirmados covid-19":
+            # Casos confirmados COVID-19
+            elif command[0] == "!casos confirmados covid-19":
                 url = "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv"
                 urlretrieve(url, 'data/global_cases_covid19.csv')
 
@@ -49,7 +49,8 @@ class MyClient(discord.Client):
                 except:
                     await message.channel.send("`Ainda não tenho essa informação ou "+country+" não é um país.`")
 
-            if command[0] == "!mortes por covid-19":
+            # Mortes por COVID-19
+            elif command[0] == "!mortes por covid-19":
                 url = "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_deaths_global.csv"
                 urlretrieve(url, 'data/global_deaths_covid19.csv')
 
@@ -68,7 +69,8 @@ class MyClient(discord.Client):
                 except:
                     await message.channel.send("`Ainda não tenho essa informação ou "+country+" não é um país.`")
 
-            if command[0] == "!casos recuperados covid-19":
+            # Casos recuperados COVID-19
+            elif command[0] == "!casos recuperados covid-19":
                 url = "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_recovered_global.csv"
                 urlretrieve(url, 'data/global_recovered_covid19.csv')
 
@@ -86,6 +88,9 @@ class MyClient(discord.Client):
                     await message.channel.send("`"+country+": "+recovered+"`")
                 except:
                     await message.channel.send("`Ainda não tenho essa informação ou "+country+" não é um país.`")
+
+            else:
+                await message.channel.send("`Error: Comando desconhecido.`")
 
 client = MyClient()
 client.run('NzIzNDk2ODM1OTk3NjMwNDc1.Xuyfkg.yJN5Q1g6imoKSomFuiPEanqDR94')
